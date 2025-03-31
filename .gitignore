@@ -2,12 +2,18 @@ mini_woody.c
 a.out
 woody_woodpacker
 libft.a
+libft/
+rsc
 
 # Clion
 cmake-build-debug
 .clang-tidy
 CMakeLists.txt
 .idea
+
+# VS Code
+*.code-workspace
+.vscode
 
 # Prerequisites
 *.d
