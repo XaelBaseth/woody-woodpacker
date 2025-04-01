@@ -10,7 +10,7 @@
 # include "../libft/inc/get_next_line.h"
 # include "../libft/inc/ft_gc_alloc.h"
 
-# include "elf.h"
+# include "elf64.h"
 # include "encryption.h"
 
 # include <stdio.h>
@@ -20,7 +20,7 @@
 # include <sys/mman.h>
 # include <string.h>
 # include <stdint.h>
-# include <linux/elf.h>
+# include <syscall.h>
 
 /*-----------------------------------------------------------------------------
                                 MACROS
@@ -43,9 +43,9 @@ typedef struct s_woody {
 	void			*ptr;
 	size_t			size;
 	Elf64_Phdr		*data;
-	Elf64_Ehdr		*last;
-	Elf32_Ehdr		*data_32;
-	Elf32_Ehdr		*last_32;
+	Elf64_Phdr		*last;
+	Elf32_Phdr		*data_32;
+	Elf32_Phdr		*last_32;
 }				t_woody;
 
 

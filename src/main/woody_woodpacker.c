@@ -6,8 +6,8 @@ int	main(int argc, char *argv[]) {
 	(void)payload;
 
 	ft_bzero(&file, sizeof(t_file));
-	if (argc != 2 || check_file(argv[1], &file)) {
+	if (argc != 2 || check_file(argv[1], &file) == EXIT_FAILURE)
 		panic("Correct usage : ./woody_woodpacker <filename>");
-	}
+	//encrypt_code(&file);
 	return 0;
 }

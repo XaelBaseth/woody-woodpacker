@@ -5,6 +5,8 @@
                                 LIBRARIES
 -----------------------------------------------------------------------------*/
 
+# include <elf.h>
+
 /*-----------------------------------------------------------------------------
                                 MACROS
 -----------------------------------------------------------------------------*/
@@ -30,5 +32,15 @@ typedef struct s_payload {
 /*-----------------------------------------------------------------------------
                                 FUNCTIONS
 -----------------------------------------------------------------------------*/
+
+void	inject(t_file *file, t_payload *payload);
+int		is_text(Elf64_Phdr *phdr);
+int		is_data(Elf64_Phdr *phdr);
+int		is_text_32(Elf32_Phdr *phdr);
+int		is_data_32(Elf32_Phdr *phdr);
+Elf64_Phdr	*get_segment(t_file *file, int (*f)(Elf64_Phdr *));
+Elf64_Phdr	*get_last_load_segment(t_file *file);
+Elf32_Phdr	*get_segment_32(t_file *file, int (*f)(Elf32_Phdr *));
+Elf32_Phdr	*get_last_load_segment_32(t_file *file);
 
 #endif

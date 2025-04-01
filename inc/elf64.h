@@ -1,5 +1,5 @@
-#ifndef ELF_H
-# define ELF_H
+#ifndef ELF64_H
+# define ELF64_H
 
 /*-----------------------------------------------------------------------------
 								LIBRARIES

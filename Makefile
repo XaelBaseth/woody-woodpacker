@@ -35,7 +35,7 @@ ELF_DIR		=	elf/
 ELF_FILES	=	elf64 checkers endian
 
 ENCR_DIR	=	encryption/
-ENCR_FILES	=	encryption
+ENCR_FILES	=	encryption injection segment
 
 SRC_MAI_FILE=	$(addprefix $(MAIN_DIR), $(MAIN_FILES))
 SRC_ELF_FILE=	$(addprefix $(ELF_DIR), $(ELF_FILES))
