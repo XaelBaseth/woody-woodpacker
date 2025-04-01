@@ -1,8 +1,11 @@
 mini_woody.c
 a.out
 woody_woodpacker
+obj/
 libft.a
 libft/
+libft/obj
+libft/.cache_exits
 rsc
 
 # Clion

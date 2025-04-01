@@ -20,7 +20,7 @@
 # include <sys/mman.h>
 # include <string.h>
 # include <stdint.h>
-# include <elf.h>
+# include <linux/elf.h>
 
 /*-----------------------------------------------------------------------------
                                 MACROS
@@ -32,27 +32,27 @@
 # define YELLOW  "\x1b[33m"
 # define BLUE    "\x1b[34m"
 
-# define KEY_SIZE 32
-
 /*-----------------------------------------------------------------------------
                                 STRUCTURES
 -----------------------------------------------------------------------------*/
+typedef struct s_elf		t_elf;
+typedef struct s_file		t_file;
+typedef struct s_payload	t_payload;
 
-typedef struct        s_woody {
-    void          *ptr;
-    size_t        size;
-    Elf64_Phdr    *data;
-    Elf64_Ehdr    *last;
-    Elf64_Ehdr    *data_32;
-    Elf64_Ehdr    *last_32;
-}                     t_woody;
+typedef struct s_woody {
+	void			*ptr;
+	size_t			size;
+	Elf64_Phdr		*data;
+	Elf64_Ehdr		*last;
+	Elf32_Ehdr		*data_32;
+	Elf32_Ehdr		*last_32;
+}				t_woody;
 
 
 /*-----------------------------------------------------------------------------
-                                STRUCTURES
+                                FUNCTIONS
 -----------------------------------------------------------------------------*/
 
 void	panic(const char *msg);
-int		check_file(char *filename, t_file *file);
 
 #endif

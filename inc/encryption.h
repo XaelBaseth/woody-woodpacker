@@ -2,10 +2,8 @@
 # define ENCRYPTION_H
 
 /*-----------------------------------------------------------------------------
-                                STRUCTURES
+                                LIBRARIES
 -----------------------------------------------------------------------------*/
-
-# include "woody_woodpacker.h"
 
 /*-----------------------------------------------------------------------------
                                 MACROS
@@ -15,18 +13,22 @@
                                 STRUCTURES
 -----------------------------------------------------------------------------*/
 
-typedef struct		s_payload {
-    char		*code;
-    size_t		size;
-    uint16_t    i_tsize;
-    uint16_t    i_ksize;
-    uint16_t    i_text;
-    uint16_t    i_key;
-    uint16_t    i_jmp;
-}                   t_payload;
+typedef struct s_elf	t_elf;
+typedef struct s_woody	t_woody;
+typedef struct s_file	t_file;
+
+typedef struct s_payload {
+	char		*code;
+	size_t		size;
+	uint16_t	i_tsize;
+	uint16_t	i_ksize;
+	uint16_t	i_text;
+	uint16_t	i_key;
+	uint16_t	i_jmp;
+}				t_payload;
 
 /*-----------------------------------------------------------------------------
-                                STRUCTURES
+                                FUNCTIONS
 -----------------------------------------------------------------------------*/
 
 #endif
