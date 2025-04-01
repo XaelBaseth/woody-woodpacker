@@ -5,8 +5,8 @@
                                 LIBRAIRIES
 -----------------------------------------------------------------------------*/
 
-# include "../libft/inc/ft_printf.h"
 # include "../libft/inc/libft.h"
+# include "../libft/inc/ft_printf.h"
 # include "../libft/inc/get_next_line.h"
 # include "../libft/inc/ft_gc_alloc.h"
 
@@ -54,5 +54,6 @@ typedef struct s_woody {
 -----------------------------------------------------------------------------*/
 
 void	panic(const char *msg);
+void	ft_putchar(char c);
 
 #endif

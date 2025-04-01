@@ -9,6 +9,7 @@ SRC_DIR 	=	src/
 OBJ_DIR 	=	obj/
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror -g -fsanitize=address
+NASM		=	nasm -f elf64
 LIBFT		=	libft/
 RM			=	rm -rf
 ECHO		=	echo
@@ -37,9 +38,12 @@ ELF_FILES	=	elf64 checkers endian
 ENCR_DIR	=	encryption/
 ENCR_FILES	=	encryption injection segment
 
+ASM_FILES	=	encrypt
+
 SRC_MAI_FILE=	$(addprefix $(MAIN_DIR), $(MAIN_FILES))
 SRC_ELF_FILE=	$(addprefix $(ELF_DIR), $(ELF_FILES))
 SRC_ENC_FILE=	$(addprefix $(ENCR_DIR), $(ENCR_FILES))
+SRC_ASM_FILE=	$(addprefix $(ENCR_DIR), $(ASM_FILES))
 
 MSRC		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_MAI_FILE)))
 MOBJ		=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_MAI_FILE)))
@@ -50,9 +54,12 @@ ELFOBJ		=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_ELF_FILE)))
 ENCSRC		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_ENC_FILE)))
 ENCOBJ		=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_ENC_FILE)))
 
+ASMSRC		=	$(addprefix $(SRC_DIR), $(addsuffix .s, $(SRC_ASM_FILE)))
+ASMOBJ		=	$(addprefix $(SRC_DIR), $(addsuffix .o, $(SRC_ASM_FILE)))
+
 OBJF		=	.cache_exists
 
-OBJ 		=	$(MOBJ) $(ELFOBJ) $(ENCOBJ)
+OBJ 		=	$(MOBJ) $(ELFOBJ) $(ENCOBJ) $(ASMOBJ)
 
 #--------------------------------------------Rules--------------------------------------------
 

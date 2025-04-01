@@ -33,7 +33,10 @@ typedef struct s_payload {
                                 FUNCTIONS
 -----------------------------------------------------------------------------*/
 
+extern void			encrypt(void *data, uint32_t data_len, void *text, uint32_t text_len);
+
 void	inject(t_file *file, t_payload *payload);
+void	encrypt_code(t_file *file);
 int		is_text(Elf64_Phdr *phdr);
 int		is_data(Elf64_Phdr *phdr);
 int		is_text_32(Elf32_Phdr *phdr);
