@@ -1,5 +1,6 @@
-#Variable
-MAKEFLAGS	+= --silent
+#--------------------------------------------Variables--------------------------------------------
+
+MAKEFLAGS	+=	--silent
 
 NAME		=	woody_woodpacker
 INC			=	inc/
@@ -12,7 +13,8 @@ LIBFT		=	libft/
 RM			=	rm -rf
 ECHO		=	echo
 
-#Colors
+#--------------------------------------------Colors--------------------------------------------
+
 DEF_COLOR	=	\033[0;39m
 ORANGE		=	\033[0;33m
 GRAY		=	\033[0;90m
@@ -24,7 +26,8 @@ MAGENTA		=	\033[0;95m
 CYAN		=	\033[0;96m
 WHITE		=	\033[0;97m
 
-#Files
+#--------------------------------------------Files--------------------------------------------
+
 MAIN_DIR	=	main/
 MAIN_FILES	=	woody_woodpacker utils
 
@@ -51,7 +54,7 @@ OBJF		=	.cache_exists
 
 OBJ 		=	$(MOBJ) $(ELFOBJ) $(ENCOBJ)
 
-#Rules
+#--------------------------------------------Rules--------------------------------------------
 
 all:           	message $(NAME)
 
