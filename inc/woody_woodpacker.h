@@ -15,7 +15,9 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <fcntl.h>
 # include <errno.h>
+# include <sys/mman.h>
 # include <string.h>
 # include <stdint.h>
 # include <elf.h>
@@ -50,7 +52,7 @@ typedef struct        s_woody {
                                 STRUCTURES
 -----------------------------------------------------------------------------*/
 
-void    panic(const char *msg);
-int     check_file(char *filename, t_file *file);
+void	panic(const char *msg);
+int		check_file(char *filename, t_file *file);
 
 #endif
