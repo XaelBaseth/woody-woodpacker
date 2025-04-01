@@ -9,7 +9,6 @@
  * @return int: 
  *         `EXIT_SUCCESS` if the ELF header is valid and supported.
  *         `EXIT_FAILURE` if the ELF file is invalid or unsupported.
- *
  * */
 static int	parse_header(t_file *file) {
 	unsigned char	*ident;
@@ -42,7 +41,6 @@ static int	parse_header(t_file *file) {
  *        the file descriptor, size, and memory-mapped pointer.
  *
  * @return int: success or failure of further file processing.
- * 
  * */
 int	check_file(const char *filename, t_file *file) {
     if ((file->fd = open(filename, O_RDONLY)) == -1)
@@ -54,4 +52,3 @@ int	check_file(const char *filename, t_file *file) {
     file->end = file->ptr + file->size;
     return (parse_header(file));
 }
-

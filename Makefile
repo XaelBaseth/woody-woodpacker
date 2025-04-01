@@ -48,7 +48,7 @@ ELFSRC		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_ELF_FILE)))
 ELFOBJ		=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_ELF_FILE)))
 
 ENCSRC		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_ENC_FILE)))
-ENCOBJ		=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_ELF_FILE)))
+ENCOBJ		=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_ENC_FILE)))
 
 OBJF		=	.cache_exists
 
