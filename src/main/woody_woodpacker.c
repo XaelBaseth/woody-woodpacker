@@ -1,6 +1,6 @@
 # include "../../inc/woody_woodpacker.h"
 
-int main(int argc, char *argv[]) {
+int	main(int argc, char *argv[]) {
 	t_file		file;
 	t_payload	payload;
 	(void)payload;

@@ -29,7 +29,7 @@ MAIN_DIR	=	main/
 MAIN_FILES	=	woody_woodpacker utils
 
 ELF_DIR		=	elf/
-ELF_FILES	=	elf64
+ELF_FILES	=	elf64 checkers endian
 
 ENCR_DIR	=	encryption/
 ENCR_FILES	=	encryption
@@ -62,7 +62,7 @@ $(NAME):		$(OBJ) $(OBJF)
 					@make -C $(LIBFT)
 					@cp libft/libft.a .
 					@$(RM) libft/libft.a
-					@$(CC) $(CFLAGS) $(OBJ) $(HEADER) libft.a -o $(NAME) $(READLINE)
+					@$(CC) $(CFLAGS) $(OBJ) $(HEADER) libft.a -o $(NAME)
 					@$(ECHO) "$(YELLOW)[WOODY_WOODPACKER]:\t$(ORANGE)[==========]\t$(GREEN) => Success!$(DEF_COLOR)\n"
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c $(OBJF)
