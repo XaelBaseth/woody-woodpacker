@@ -5,10 +5,10 @@
                                 LIBRAIRIES
 -----------------------------------------------------------------------------*/
 
-# include "../libft/inc/libft.h"
-# include "../libft/inc/ft_printf.h"
-# include "../libft/inc/get_next_line.h"
-# include "../libft/inc/ft_gc_alloc.h"
+# include "../lib/libft/inc/libft.h"
+# include "../lib/libft/inc/ft_printf.h"
+# include "../lib/libft/inc/get_next_line.h"
+# include "../lib/libft/inc/ft_gc_alloc.h"
 
 # include "elf64.h"
 # include "encryption.h"
@@ -56,5 +56,7 @@ typedef struct s_woody {
 void	panic(const char *msg);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
+void	free_payload(char *payload[]);
+t_payload	get_payload(t_file *file);
 
 #endif

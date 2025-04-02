@@ -11,7 +11,7 @@ CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror -g -fsanitize=address
 NASM		=	nasm
 NASMFLAGS	=	-f elf64
-LIBFT		=	libft/
+LIBFT		=	lib/libft/
 RM			=	rm -rf
 ECHO		=	echo
 
@@ -35,7 +35,7 @@ MAIN_DIR	=	main/
 MAIN_FILES	=	woody_woodpacker utils
 
 ELF_DIR		=	elf/
-ELF_FILES	=	elf64 checkers endian
+ELF_FILES	=	checkers endian
 
 ENCR_DIR	=	encryption/
 ENCR_FILES	=	encryption injection segment
@@ -73,8 +73,8 @@ message: ## Display the building of files.
 
 $(NAME):		$(OBJ) $(OBJF)
 					@make -C $(LIBFT)
-					@cp libft/libft.a .
-					@$(RM) libft/libft.a
+					@cp $(LIBFT)/libft.a .
+					@$(RM) $(LIBFT)/libft.a
 					@$(CC) $(CFLAGS) $(OBJ) $(HEADER) libft.a -o $(NAME)
 					@$(ECHO) "$(YELLOW)[WOODY_WOODPACKER]:\t$(ORANGE)[==========]\t$(GREEN) => Success!$(DEF_COLOR)\n"
 
@@ -102,15 +102,13 @@ help: ## Print help on Makefile.
 clean: ## Clean generated files and cache.
 					@$(RM) $(OBJ_DIR)
 					@$(RM) $(OBJF)
-					@$(RM) libft/obj
+					@$(RM) $(LIBFT)/obj
 					@$(ECHO) "$(BLUE)[WOODY_WOODPACKER]:\tobject files$(DEF_COLOR)\t$(GREEN) => Cleaned!$(DEF_COLOR)\n"
 
 fclean: ## Clean all generated file, including binaries.
 					@make clean
-					@$(RM) $(NAME)
-					@$(RM) libft.a
+					@$(RM) $(NAME) libft.a woody
 					@make fclean -C $(LIBFT)
-					@$(RM) woody
 					@$(ECHO) "$(CYAN)[WOODY_WOODPACKER]:\texec. files$(DEF_COLOR)\t$(GREEN) => Cleaned!$(DEF_COLOR)\n"
 
 re: ## Clean and rebuild binary file.
