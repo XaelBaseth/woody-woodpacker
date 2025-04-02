@@ -9,7 +9,8 @@ SRC_DIR 	=	src/
 OBJ_DIR 	=	obj/
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror -g -fsanitize=address
-NASM		=	nasm -f elf64
+NASM		=	nasm
+NASMFLAGS	=	-f elf64
 LIBFT		=	libft/
 RM			=	rm -rf
 ECHO		=	echo
@@ -26,6 +27,7 @@ BLUE		=	\033[0;94m
 MAGENTA		=	\033[0;95m
 CYAN		=	\033[0;96m
 WHITE		=	\033[0;97m
+CLEARLINE	=	\033[1A\033[K
 
 #--------------------------------------------Files--------------------------------------------
 
@@ -38,12 +40,13 @@ ELF_FILES	=	elf64 checkers endian
 ENCR_DIR	=	encryption/
 ENCR_FILES	=	encryption injection segment
 
+ASM_DIR		=	asm/
 ASM_FILES	=	encrypt
 
 SRC_MAI_FILE=	$(addprefix $(MAIN_DIR), $(MAIN_FILES))
 SRC_ELF_FILE=	$(addprefix $(ELF_DIR), $(ELF_FILES))
 SRC_ENC_FILE=	$(addprefix $(ENCR_DIR), $(ENCR_FILES))
-SRC_ASM_FILE=	$(addprefix $(ENCR_DIR), $(ASM_FILES))
+SRC_ASM_FILE=	$(addprefix $(ASM_DIR), $(ASM_FILES))
 
 MSRC		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_MAI_FILE)))
 MOBJ		=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_MAI_FILE)))
@@ -55,7 +58,7 @@ ENCSRC		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_ENC_FILE)))
 ENCOBJ		=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_ENC_FILE)))
 
 ASMSRC		=	$(addprefix $(SRC_DIR), $(addsuffix .s, $(SRC_ASM_FILE)))
-ASMOBJ		=	$(addprefix $(SRC_DIR), $(addsuffix .o, $(SRC_ASM_FILE)))
+ASMOBJ		=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_ASM_FILE)))
 
 OBJF		=	.cache_exists
 
@@ -77,13 +80,18 @@ $(NAME):		$(OBJ) $(OBJF)
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c $(OBJF)
 					@$(CC) $(CFLAGS) -c $< -o $@
-					@$(ECHO) "\033[1A\033[K$< created"
+					@$(ECHO) "$(CLEARLINE)$< created"
+
+$(OBJ_DIR)%.o:	$(SRC_DIR)%.s $(OBJF)
+					@$(NASM) $(NASMFLAGS) -s $< -o $@
+					@$(ECHO) "$(CLEARLINE)$< assembled"
 
 $(OBJF):
 					@mkdir -p $(OBJ_DIR)
 					@mkdir -p $(OBJ_DIR)$(MAIN_DIR)
 					@mkdir -p $(OBJ_DIR)$(ELF_DIR)
 					@mkdir -p $(OBJ_DIR)$(ENCR_DIR)
+					@mkdir -p $(OBJ_DIR)$(ASM_DIR)
 					@touch $(OBJF)
 
 help: ## Print help on Makefile.

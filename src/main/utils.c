@@ -18,3 +18,13 @@ void	panic(const char *msg) {
 void ft_putchar(char c) {
     write(1, &c, 1);
 }
+
+/* *
+ * Prints a strings to the stdout.
+ * 
+ * @param `*str`: string to be printed
+ */
+void	ft_putstr(char *str) {
+	while (*str)
+		write(1, str++, 1);
+}

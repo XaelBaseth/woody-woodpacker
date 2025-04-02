@@ -55,5 +55,6 @@ typedef struct s_woody {
 
 void	panic(const char *msg);
 void	ft_putchar(char c);
+void	ft_putstr(char *str);
 
 #endif
