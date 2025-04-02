@@ -53,7 +53,7 @@ t_payload	get_payload(t_file *file) {
 	return (payload);
 }
 
-/**
+/* *
  * Free the payload and reset its pointer to NULL.
  * 
  * @param `*payload[]`: Adress of the string pointer to free.

@@ -25,13 +25,14 @@ static int	save_file(char *woody, size_t size) {
 }
 
 /* *
- * Formats the payload for a 32-bit ELF file by calculating relative addresses and embedding necessary data into the payload.
+ * Formats the payload for a 32-bit ELF file by calculating relative addresses
+ * and embedding necessary data into the payload.
  *
  * @param file t_file*: Pointer to the structure containing the mapped ELF file.
  * @param payload t_payload*: Pointer to the structure that will store the formatted payload.
  * @param entry_addr Elf32_Addr: The entry point address used for calculating relative addresses.
  * */
-static void	format_payload_32(t_file *file, t_payload *payload, 	Elf32_Addr entry_addr) {
+static void	format_payload_32(t_file *file, t_payload *payload, Elf32_Addr entry_addr) {
 	uint32_t	last_entry;
 	int32_t		rel_entry;
 	int32_t		rel_text;
@@ -84,11 +85,14 @@ static void	format_payload(t_file *file, t_payload *payload, Elf64_Addr entry_ad
 }
 
 /* *
- * Modifies the given ELF file to create a "woody" file by injecting data into the specified sections, updating the section headers, and ensuring that the file's contents are correctly adjusted.
+ * Modifies the given ELF file to create a "woody" file by injecting data into the
+ * specified sections, updating the section headers, and ensuring that the
+ * file's contents are correctly adjusted.
  *
  * @param file t_file*: Pointer to the structure containing the ELF file data.
  * @param woody t_woody*: Pointer to the structure representing the modified ELF file.
- * @param inject_index size_t*: Pointer to the index at which the injection will occur, updated during the process.
+ * @param inject_index size_t*: Pointer to the index at which the injection will occur,
+ * updated during the process.
  * */
 static void	create_woody_32(t_file *file, t_woody *woody, size_t *inject_index) {
 	size_t		file_index;
@@ -119,7 +123,9 @@ static void	create_woody_32(t_file *file, t_woody *woody, size_t *inject_index) 
 }
 
 /* *
- * Modifies the given ELF file to create a "woody" file by injecting data into the specified sections, updating the section headers, and ensuring that the file's contents are correctly adjusted for 64-bit architecture.
+ * Modifies the given ELF file to create a "woody" file by injecting data into the specified
+ * sections, updating the section headers, and ensuring that the file's contents are
+ * correctly adjusted for 64-bit architecture.
  *
  * @param file t_file*: Pointer to the structure containing the ELF file data.
  * @param woody t_woody*: Pointer to the structure representing the modified ELF file.
@@ -191,7 +197,8 @@ static void	inject_32(t_file *file, t_payload *payload) {
 }
 
 /* *
- * Injects the given payload into an ELF file by modifying the necessary segments, updating program headers, and saving the modified ELF to a new file.
+ * Injects the given payload into an ELF file by modifying the necessary segments, 
+ * updating program headers, and saving the modified ELF to a new file.
  *
  * @param file t_file*: Pointer to the structure containing the original ELF file data.
  * @param payload t_payload*: Pointer to the payload data that will be injected into the ELF file..
