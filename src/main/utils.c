@@ -48,8 +48,8 @@ t_payload	get_payload(t_file *file) {
 		ft_memcpy(payload.code, DECRYPTION_CODE, size);
 		return (payload);
 	}
-	size = CODE_SIZE_32;
-	payload = (t_payload){malloc(size), size, 0x16, 0x1b, 0x26, 0x67, 0x47};
+	panic("No payload found.");
+	payload = (t_payload){malloc(0), 0, 0, 0, 0, 0, 0};
 	return (payload);
 }
 

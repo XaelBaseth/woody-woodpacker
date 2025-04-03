@@ -44,8 +44,6 @@ typedef struct s_woody {
 	size_t			size;
 	Elf64_Phdr		*data;
 	Elf64_Phdr		*last;
-	Elf32_Phdr		*data_32;
-	Elf32_Phdr		*last_32;
 }				t_woody;
 
 
