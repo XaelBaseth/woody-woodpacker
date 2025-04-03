@@ -11,8 +11,8 @@
  *         - `EXIT_FAILURE` if any error occurred during the file operations.
  * */
 static int	save_file(char *woody, size_t size) {
-	int	fd;
-	
+	int		fd;
+
 	errno = 0;
 	if ((fd = open("woody.tmp", O_WRONLY | O_CREAT | O_TRUNC, 0755)) == -1)
 		return (EXIT_FAILURE);
@@ -31,8 +31,7 @@ static int	save_file(char *woody, size_t size) {
  * @param payload t_payload*: Pointer to the structure that will store the formatted payload.
  * @param entry_addr Elf64_Addr: The entry point address used for calculating relative addresses.
  * */
-static void	format_payload(t_file *file, t_payload *payload, Elf64_Addr entry_addr)
-{
+static void	format_payload(t_file *file, t_payload *payload, Elf64_Addr entry_addr) {
 	uint32_t	last_entry;
 	int32_t		rel_entry;
 	int32_t		rel_text;

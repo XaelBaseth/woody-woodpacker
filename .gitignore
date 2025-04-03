@@ -8,6 +8,7 @@ libft/obj
 libft/.cache_exits
 rsc
 .gitignore
+.cache_exits
 libft
 
 # Clion

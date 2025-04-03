@@ -11,7 +11,7 @@ static void	get_key(t_file *file) {
 	int		i;
 
 	if ((fd = open("/dev/urandom", O_RDONLY)) == -1)
-		panic("Failed to open the file");
+		panic("Failed to open the file.");
 	read(fd, file->key, KEY_SIZE);
 	close(fd);
 	ft_putstr("encryption key : 0x");
@@ -37,7 +37,7 @@ void		encrypt_code(t_file *file) {
 	uint32_t	key_size;
 
 	if (!(file->text = get_segment(file, is_text)))
-		panic("Failed to truncate the file header.");
+		panic("Program header table is truncated.");
 	((Elf64_Phdr *)file->text)->p_flags |= PF_W;
 	text = file->ptr + get_uint64(((Elf64_Phdr *)file->text)->p_offset,
 		file->endian);
@@ -46,6 +46,6 @@ void		encrypt_code(t_file *file) {
 	key = &file->key;
 	key_size = KEY_SIZE;
 	if (text < file->ptr || text > file->end || text + text_size > file->end)
-		panic("Failed to truncate the file.");
+		panic("Program header table is truncated.");
 	encrypt(key, key_size, text, text_size);
 }
